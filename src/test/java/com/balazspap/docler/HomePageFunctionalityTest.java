@@ -1,47 +1,57 @@
 package com.balazspap.docler;
 
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import pages.CheckPage;
 import pages.HomePage;
-import pages.NavigationPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class REQ_UI_03_Test {
+public class homePageFunctionalityTest {
 
     WebDriver driver;
     HomePage homePage;
-    NavigationPage navigation;
+    CheckPage checkPage;
 
-    @Given("^I go to UI Testing home page$")
-    public void iGoToUITestingHomePage() throws Throwable {
+    @Given("^The UI Testing Site$")
+    public void theUITestingSite() throws Throwable {
         homePage = new HomePage(driver);
         homePage.navigateTo();
     }
 
-    @When("^I click the Home button$")
-    public void iClickTheHomeButton() throws Throwable {
+    @When("^I navigate to the Home Page$")
+    public void iNavigateToTheHomePage() throws Throwable {
         homePage.ClickHomeButton();
     }
 
-    @Then("^I get navigated to the Home page$")
-    public void iGetNavigatedToTheHomePage() throws Throwable {
-        navigation = new NavigationPage(driver);
-        navigation.checkHomeNavigationPageUrl();
+    @Then("^The Title of the page is UI Testing Site$")
+    public void theTitleOfThePageIsUITestingSite() throws Throwable {
+        checkPage = new CheckPage(driver);
+        checkPage.checkPageTitle();
     }
 
-    @And("^Home button is active$")
-    public void homeButtonIsActive() throws Throwable {
-        navigation.checkHomeButtonIsActive();
+    @And("^The Company Logo Is Visible$")
+    public void theCompanyLogoIsVisible() throws Throwable {
+        checkPage.checkLogoIsVisible();
+    }
+
+    @And("^Welcome Text is visible$")
+    public void welcomeTextIsVisible() throws Throwable {
+        checkPage.checkWelcomeTextIsVisible();
+    }
+
+    @And("^Exercise test is visible$")
+    public void exerciseTestIsVisible() throws Throwable {
+        checkPage.checkExerciseTestIsVisible();
     }
 
     @Before
@@ -56,6 +66,6 @@ public class REQ_UI_03_Test {
 
     @After
     public void tearDown ()throws Exception {
-        driver.close();
+        driver.quit();
     }
 }

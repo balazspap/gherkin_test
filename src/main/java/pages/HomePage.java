@@ -22,12 +22,6 @@ public class HomePage extends PageBase{
         return new HomePage(driver);
     }
 
-    public HomePage ClickErrorButton() {
-        WebElement errorButton = driver.findElement(By.id("error"));
-        errorButton.click();
-        return new HomePage(driver);
-    }
-
     public HomePage ClickLogoButton() {
         WebElement logoButton = driver.findElement(By.id("site"));
         logoButton.click();

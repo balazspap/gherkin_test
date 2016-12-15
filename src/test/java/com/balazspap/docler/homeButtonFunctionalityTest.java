@@ -1,47 +1,47 @@
 package com.balazspap.docler;
 
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import pages.CheckPage;
 import pages.HomePage;
-import pages.NavigationPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class REQ_UI_05_test {
+public class homeButtonFunctionalityTest {
 
     WebDriver driver;
     HomePage homePage;
-    NavigationPage navigation;
+    CheckPage checkPage;
 
-    @Given("^I navigate to UI Testing home page$")
-    public void iNavigateToUITestingHomePage() throws Throwable {
+    @Given("^I go to UI Testing home page$")
+    public void iGoToUITestingHomePage() throws Throwable {
         homePage = new HomePage(driver);
         homePage.navigateTo();
     }
 
-    @When("^I click the Form button$")
-    public void iClickTheFormButton() throws Throwable {
-        homePage.ClickFormButton();
+    @When("^I click the Home button$")
+    public void iClickTheHomeButton() throws Throwable {
+        homePage.ClickHomeButton();
     }
 
-    @Then("^I get navigated to the Form page$")
-    public void iGetNavigatedToTheFormPage() throws Throwable {
-        navigation = new NavigationPage(driver);
-        navigation.checkFormNavigationPageUrl();
+    @Then("^I get navigated to the Home page$")
+    public void iGetNavigatedToTheHomePage() throws Throwable {
+        checkPage = new CheckPage(driver);
+        checkPage.checkHomeNavigationPageUrl();
     }
 
-    @And("^Form button is active$")
-    public void formButtonIsActive() throws Throwable {
-        navigation.checkFormButtonIsActive();
+    @And("^Home button is active$")
+    public void homeButtonIsActive() throws Throwable {
+        checkPage.checkHomeButtonIsActive();
     }
 
     @Before
@@ -56,6 +56,7 @@ public class REQ_UI_05_test {
 
     @After
     public void tearDown ()throws Exception {
-        driver.close();
+        driver.quit();
     }
+
 }
