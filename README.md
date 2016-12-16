@@ -20,5 +20,4 @@ Automated web test cases using Java and Gherkin.
 ### ToDos:
 - Cover all missing requirements
 - Create proxy service for response status code monitoring
-- Implement Scenario Outline
 - Use a better abstraction in Page Object Pattern

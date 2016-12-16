@@ -39,10 +39,12 @@ Feature: The following requirements are given for http://uitest.duodecadits.com 
         | Charlie | Hello Charlie! |
         | Emily   | Hello Emily!   |
 
-    Scenario: REQ-UI-05, REQ-UI-06
+    Scenario: REQ-UI-01, REQ-UI-02, REQ-UI-05, REQ-UI-06
       When I click the Form button
       Then I get navigated to the Form page
       And Form button is active
+      And The Page Title is UI Testing Site
+      And The Logo of the company Is Visible
 
     Scenario: REQ-UI-08
       When I click the Logo button
