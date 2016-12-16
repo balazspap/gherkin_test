@@ -27,9 +27,9 @@ public class testRequirementsCoverageTest {
     public void setUp ()throws Exception {
         File pathToBinary = new File(firefoxFolder);
         FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
-        FirefoxProfile ffprofile = new FirefoxProfile();
-        ffprofile.setAcceptUntrustedCertificates(true);
-        driver = new FirefoxDriver(ffBinary, ffprofile);
+        FirefoxProfile firefoxProfile = new FirefoxProfile();
+        firefoxProfile.setAcceptUntrustedCertificates(true);
+        driver = new FirefoxDriver(ffBinary, firefoxProfile);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -62,8 +62,7 @@ public class testRequirementsCoverageTest {
     }
 
     // formPageFunctionalityTest
-
-    @When("^you type \"([^\"]*)\" into input field$")
+    @When("^you type ([^\"]*) into input field$")
     public void youTypeValueIntoInputField(String arg1) throws Throwable {
         homePage.ClickFormButton();
         checkPage = new CheckPage(driver);
@@ -80,13 +79,22 @@ public class testRequirementsCoverageTest {
         checkPage.checkRedirectedPage();
     }
 
-    @And("\"([^\"]*)\" should appear$")
+    @And("^The Page Title is UI Testing Site$")
+    public void thePageTitleIsUITestingSite() throws Throwable {
+        checkPage.checkPageTitle();
+    }
+
+    @And("^The Logo of the company Is Visible$")
+    public void theLogoOfTheCompanyIsVisible() throws Throwable {
+        checkPage.checkLogoIsVisible();
+    }
+
+    @And("([^\"]*) should appear$")
     public void resultShouldAppear(String arg2) throws Throwable {
         checkPage.checkIfTextAppeared(arg2);
     }
 
     // homeButtonFunctionalityTest
-
     @When("^I click the Home button$")
     public void iClickTheHomeButton() throws Throwable {
         homePage.ClickHomeButton();
@@ -104,7 +112,6 @@ public class testRequirementsCoverageTest {
     }
 
     // homePageFunctionalityTest
-
     @When("^I navigate to the Home Page$")
     public void iNavigateToTheHomePage() throws Throwable {
         homePage.ClickHomeButton();
@@ -132,7 +139,6 @@ public class testRequirementsCoverageTest {
     }
 
     // logoButtonFunctionality
-
     @When("^I click the Logo button$")
     public void iClickTheLogoButton() throws Throwable {
         homePage.ClickLogoButton();
