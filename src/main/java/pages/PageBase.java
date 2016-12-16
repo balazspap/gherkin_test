@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class PageBase {
@@ -12,7 +13,7 @@ public class PageBase {
 
     public HomePage navigateTo() {
         driver.navigate().to("http://uitest.duodecadits.com");
-//        Assert.assertEquals("UI Testing Site", driver.getTitle());
+        Assert.assertEquals("UI Testing Site", driver.getTitle());
         return new HomePage(driver);
     }
 }
