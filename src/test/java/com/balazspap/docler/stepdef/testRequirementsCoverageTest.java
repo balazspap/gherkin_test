@@ -94,6 +94,14 @@ public class testRequirementsCoverageTest {
         checkPage.checkIfTextAppeared(arg2);
     }
 
+    @And("^a form is visible with input box and submit button$")
+    public void aFormIsVisibleWithInputBoxAndSubmitButton() throws Throwable {
+        homePage.ClickFormButton();
+        checkPage.checkIfFormIsVisible();
+        checkPage.checkIfFormContainsInputBox();
+        checkPage.checkIfFormContainsSubmitButton();
+    }
+
     // homeButtonFunctionalityTest
     @When("^I click the Home button$")
     public void iClickTheHomeButton() throws Throwable {
