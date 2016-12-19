@@ -20,7 +20,7 @@
         <maven.compiler.version>3.3</maven.compiler.version>
         <selenium.version>2.53.0</selenium.version>
         <surefire.version>2.16</surefire.version>
-        <firefox.folder>"Default\path\to\folder"</firefox.folder>
+        <firefox.folder>"C:\Selenium\Mozilla Firefox\firefox.exe"</firefox.folder>
     </properties>
 
     <dependencies>
@@ -68,7 +68,7 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <firefox.folder>//Default//folder//</firefox.folder>
+                        <firefox.folder>C://Selenium//Mozilla Firefox//firefox.exe</firefox.folder>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
